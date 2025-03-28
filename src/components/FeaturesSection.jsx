@@ -64,26 +64,28 @@ const FeaturesSection = () => {
     },
   ];
 
-  const testimonials = [
-    {
-      name: "John Doe",
-      role: "Web Developer",
-      comment:
-        "Switching to this hosting service was the best decision I made. The speed and support are unmatched!",
-    },
-    {
-      name: "Jane Smith",
-      role: "Small Business Owner",
-      comment:
-        "I love how easy it is to manage my website. The 24/7 support team is always there when I need help.",
-    },
-    {
-      name: "Alex Johnson",
-      role: "Freelance Designer",
-      comment:
-        "The free domain and 1-click installations saved me so much time. Highly recommend this service!",
-    },
-  ];
+ 
+    const testimonials = [
+      {
+        name: "Amit Sharma",
+        role: "Web Designer",
+        comment:
+          "The custom web design solutions provided by this team are outstanding. My website now looks professional, modern, and highly responsive!",
+      },
+      {
+        name: "Priya Verma",
+        role: "E-commerce Business Owner",
+        comment:
+          "Their web design expertise transformed my online store. The clean layout and fast loading speed have significantly improved my sales!",
+      },
+      {
+        name: "Rajesh Iyer",
+        role: "Freelance Developer",
+        comment:
+          "The UI/UX design enhancements they provided have taken my website to the next level. The attention to detail is truly remarkable!",
+      },
+    ];
+    
 
   const comparisonTable = [
     {

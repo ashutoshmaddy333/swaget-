@@ -10,14 +10,14 @@ const Footer = () => {
   const contactInfo = [
     { icon: <Phone className="h-5 w-5" />, text: "08069409932", href: "tel:08069409932" },
     { icon: <Mail className="h-5 w-5" />, text: "info@swaget.in", href: "mailto:info@swaget.in" },
-    { icon: <MapPin className="h-5 w-5" />, text: "Swaget Digital, India", href: "https://maps.google.com" },
+    { icon: <MapPin className="h-5 w-5" />, text: "Swaget Infocomm Solutions LLP,India", href: "https://www.google.com/maps/place/Swaget+Infocomm+Solutions/@28.5247641,77.2129994,765m/data=!3m2!1e3!4b1!4m6!3m5!1s0x390ce15d6e0507cb:0x48ffed5e51a53e9d!8m2!3d28.5247641!4d77.2129994!16s%2Fg%2F11l5f3l5z9?entry=ttu&g_ep=EgoyMDI1MDMyNC4wIKXMDSoASAFQAw%3D%3D" },
   ];
 
   const socialMedia = [
-    { icon: <Facebook className="h-5 w-5" />, href: "https://facebook.com" },
-    { icon: <Instagram className="h-5 w-5" />, href: "https://instagram.com" },
-    { icon: <Twitter className="h-5 w-5" />, href: "https://twitter.com" },
-    { icon: <Linkedin className="h-5 w-5" />, href: "https://linkedin.com" },
+    { icon: <Facebook className="h-5 w-5" />, href: "https://www.facebook.com/swaget.in" },
+    { icon: <Instagram className="h-5 w-5" />, href: "https://www.instagram.com/swaget.in" },
+    { icon: <Twitter className="h-5 w-5" />, href: "https://x.com/Swagetinfocomm" },
+    { icon: <Linkedin className="h-5 w-5" />, href: "http://linkedin.com/in/dhananjay-shukla-73322332b" },
   ];
 
   return (

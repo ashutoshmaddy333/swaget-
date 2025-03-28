@@ -209,8 +209,8 @@ const HomePage = () => {
               <div className="flex flex-wrap gap-3">
                 <span className="bg-gray-800 text-yellow-300 px-3 py-1 rounded-lg text-sm">.com</span>
                 <span className="bg-gray-800 text-yellow-300 px-3 py-1 rounded-lg text-sm">.in</span>
-                <span className="bg-gray-800 text-yellow-300 px-3 py-1 rounded-lg text-sm">.co.in</span>
                 <span className="bg-gray-800 text-yellow-300 px-3 py-1 rounded-lg text-sm">.net</span>
+                <span className="bg-gray-800 text-yellow-300 px-3 py-1 rounded-lg text-sm">.org</span>
               </div>
             </div>
             
@@ -235,19 +235,19 @@ const HomePage = () => {
             <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
               <div className="bg-gray-800 bg-opacity-70 p-3 rounded-lg flex flex-col items-center">
                 <p className="text-yellow-400 font-semibold">.com</p>
-                <p className="text-white">₹899/yr</p>
+                <p className="text-white">₹1,117.00/yr</p>
               </div>
               <div className="bg-gray-800 bg-opacity-70 p-3 rounded-lg flex flex-col items-center">
                 <p className="text-yellow-400 font-semibold">.in</p>
-                <p className="text-white">₹499/yr</p>
+                <p className="text-white">₹649/yr</p>
               </div>
               <div className="bg-gray-800 bg-opacity-70 p-3 rounded-lg flex flex-col items-center">
-                <p className="text-yellow-400 font-semibold">.co.in</p>
-                <p className="text-white">₹399/yr</p>
+                <p className="text-yellow-400 font-semibold">.net</p>
+                <p className="text-white">₹1,432.00/yr</p>
               </div>
               <div className="bg-gray-800 bg-opacity-70 p-3 rounded-lg flex flex-col items-center">
                 <p className="text-yellow-400 font-semibold">.org</p>
-                <p className="text-white">₹999/yr</p>
+                <p className="text-white">₹1,466.00 /yr</p>
               </div>
             </div>
           </div>

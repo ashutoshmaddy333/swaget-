@@ -159,14 +159,14 @@ const Navbar = () => {
               >
                 <p className="px-4 py-2 text-sm">New customer?</p>
                 <Link
-                  to="/signup"
+                  to="https://billing.swaget.in/register.php"
                   className="block px-4 py-2 text-blue-600 font-medium hover:bg-gray-100 transition-all duration-200"
                 >
                   Sign Up
                 </Link>
                 <div className="border-t border-gray-200 my-1"></div>
                 <Link
-                  to="/login"
+                  to="https://billing.swaget.in/dologin.php"
                   className="block px-4 py-2 text-gray-800 font-medium hover:bg-gray-100 transition-all duration-200"
                 >
                   Login
@@ -176,12 +176,15 @@ const Navbar = () => {
           </div>
 
           {/* Get Started Button */}
-          <Link
-            to="/order-now"
-            className="bg-gradient-to-r from-yellow-500 to-yellow-400 text-gray-900 px-6 py-2 rounded-lg text-lg font-semibold shadow-lg hover:scale-105 hover:shadow-xl transition-all duration-300"
-          >
-            Get Started
-          </Link>
+          <a
+  href="/order-now"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="w-full text-center bg-gradient-to-r from-yellow-500 to-yellow-400 text-gray-900 px-6 py-2 rounded-lg font-medium text-lg shadow-lg hover:scale-105 transition-transform duration-300"
+>
+  Get Started
+</a>
+
         </div>
 
         {/* Cart Icon */}
@@ -293,12 +296,15 @@ const Navbar = () => {
             >
               Login
             </Link>
-            <Link
-              to="/order-now"
-              className="w-full text-center bg-gradient-to-r from-yellow-500 to-yellow-400 text-gray-900 px-6 py-2 rounded-lg font-medium text-lg shadow-lg hover:scale-105 transition-transform duration-300"
-            >
-              Get Started
-            </Link>
+            <a
+  href="/order-now"
+  className="w-full text-center bg-gradient-to-r from-yellow-500 to-yellow-400 text-gray-900 px-6 py-2 rounded-lg font-medium text-lg shadow-lg hover:scale-105 transition-transform duration-300"
+   target="_blank"
+  rel="noopener noreferrer"
+>
+  Get Started
+</a>
+
           </div>
         </div>
       </div>
