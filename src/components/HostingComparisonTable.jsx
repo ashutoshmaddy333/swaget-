@@ -256,7 +256,7 @@ const AboutUs = () => {
               <div className="logo-inner w-full h-full rounded-full p-2">
                 <div className="w-full h-full rounded-full bg-gray-800 p-8 border-4 border-yellow-500 border-opacity-50 shadow-neon overflow-hidden flex items-center justify-center">
                   <img 
-                    src="/public/swaget.jpg"
+                    src="/swaget.jpg"
                     alt="Swaget Infocomm Logo" 
                     className="w-full h-full object-cover rounded-full image-tilt"
                   />

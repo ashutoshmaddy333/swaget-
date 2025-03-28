@@ -95,10 +95,11 @@ const AboutPage = () => {
         <div className="md:w-1/2 relative group overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60 z-10"></div>
           <img
-            src="/public/2.jpg"
-            alt="About Swaget"
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-          />
+  src="/2.jpg"  // Remove "/public"
+  alt="About Swaget"
+  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+/>
+
           <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
             <h2 className="text-3xl font-bold text-yellow-400 mb-2">Swaget Infocomm Solutions LLP</h2>
             <p className="text-lg text-gray-200">Website Designing, Hosting & SEO Services | Fast & Affordable Solutions</p>
