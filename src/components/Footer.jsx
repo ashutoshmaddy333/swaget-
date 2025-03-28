@@ -67,7 +67,7 @@ const Footer = () => {
               {/* Add Order Now link separately if needed */}
               <li>
                 <Link
-                  to="https://billing.swaget.in/index.php/store/web-designing-pricing-plan"
+                  to="/order-now"
                   className="flex items-center text-gray-400 hover:text-yellow-400 transition-all duration-300 group"
                 >
                   <ChevronRight className="h-4 w-4 mr-2 text-yellow-500 group-hover:translate-x-1 transition-transform duration-300" />
@@ -141,7 +141,6 @@ const Footer = () => {
               ].map((link) => (
                 <Link
                   key={link.name}
-                   target="_blank"
                   to={link.path}
                   className="relative group px-4 py-2 transition-all duration-700 hover:duration-300"
                   style={{
