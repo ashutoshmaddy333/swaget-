@@ -139,19 +139,14 @@ const PrivacyPolicy = () => {
   return (
     <div className="min-h-screen bg-gray-900 text-white">
       {/* Header */}
-      <header className="bg-gray-800 shadow-sm">
+      <header className="bg-black-300 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex justify-between items-center">
             <div className="flex items-center">
               <div className="text-2xl font-bold text-yellow-400">Swaget</div>
               <div className="ml-2 text-sm text-gray-400">Infocomm Solutions LLP</div>
             </div>
-            <nav className="hidden md:flex space-x-6">
-              <a href="#" className="text-gray-400 hover:text-yellow-400 transition-colors">Home</a>
-              <a href="#" className="text-gray-400 hover:text-yellow-400 transition-colors">Services</a>
-              <a href="#" className="text-gray-400 hover:text-yellow-400 transition-colors">About</a>
-              <a href="#" className="text-gray-400 hover:text-yellow-400 transition-colors">Contact</a>
-            </nav>
+          
           </div>
         </div>
       </header>

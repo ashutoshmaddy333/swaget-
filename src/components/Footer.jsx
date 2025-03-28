@@ -1,9 +1,25 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Phone, Mail, MapPin, Facebook, Instagram, Twitter, Linkedin, ArrowRight, ChevronRight } from "lucide-react";
 import { navItems, services } from "./Navbar"; // Import from your Navbar component
 
 const Footer = () => {
+  const navigate = useNavigate();
+
+  // Smooth scroll and navigate function
+  const handleLinkClick = (path) => {
+    // Scroll to top with smooth animation
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+
+    // Short delay to allow smooth scroll before navigation
+    setTimeout(() => {
+      navigate(path);
+    }, 300); // Matches the scroll duration
+  };
+
   // Filter out the "Order Now" link from navItems for the footer
   const quickLinks = navItems.filter(item => item.id !== "order");
 
@@ -67,7 +83,7 @@ const Footer = () => {
               {/* Add Order Now link separately if needed */}
               <li>
                 <Link
-                  to="/order-now"
+                  to="https://billing.swaget.in/index.php/store/web-designing-pricing-plan"
                   className="flex items-center text-gray-400 hover:text-yellow-400 transition-all duration-300 group"
                 >
                   <ChevronRight className="h-4 w-4 mr-2 text-yellow-500 group-hover:translate-x-1 transition-transform duration-300" />
@@ -139,10 +155,10 @@ const Footer = () => {
                 { name: "Refund Policy", path: "/refund-policy" },
                 { name: "Terms & Conditions", path: "/terms-and-conditions" }
               ].map((link) => (
-                <Link
+                <div
                   key={link.name}
-                  to={link.path}
-                  className="relative group px-4 py-2 transition-all duration-700 hover:duration-300"
+                  onClick={() => handleLinkClick(link.path)}
+                  className="relative group px-4 py-2 transition-all duration-700 hover:duration-300 cursor-pointer"
                   style={{
                     perspective: "1000px"
                   }}
@@ -175,7 +191,7 @@ const Footer = () => {
                       ))}
                     </div>
                   </div>
-                </Link>
+                </div>
               ))}
             </div>
 

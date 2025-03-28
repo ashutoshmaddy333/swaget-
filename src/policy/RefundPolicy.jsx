@@ -131,12 +131,7 @@ const RefundPolicy = () => {
               <div className="text-2xl font-bold text-yellow-400">Swaget</div>
               <div className="ml-2 text-sm text-gray-400">Infocomm Solutions LLP</div>
             </div>
-            <nav className="hidden md:flex space-x-6">
-              <a href="#" className="text-gray-400 hover:text-yellow-400 transition-colors">Home</a>
-              <a href="#" className="text-gray-400 hover:text-yellow-400 transition-colors">Services</a>
-              <a href="#" className="text-gray-400 hover:text-yellow-400 transition-colors">About</a>
-              <a href="#" className="text-gray-400 hover:text-yellow-400 transition-colors">Contact</a>
-            </nav>
+           
           </div>
         </div>
       </header>

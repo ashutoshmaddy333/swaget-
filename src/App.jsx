@@ -28,9 +28,6 @@ function HomePage() {
       <div id="pricing"><PricingPlans /></div>
       <div id="features"><FeaturesSection /></div>
       <div id="faq"><FAQ /></div>
-      
-      
-      
     </>
   );
 }
