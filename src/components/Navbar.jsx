@@ -5,7 +5,7 @@ import { Phone, ChevronDown, ShoppingCart, User } from "lucide-react";
 // Move these to a separate constants file if used in multiple components
 export const navItems = [
   { id: "home", label: "Home", href: "/" },
-  { id: "order", label: "Order Now", href: "/order-now" },
+  { id: "order", label: "Order Now", href: "https://billing.swaget.in/index.php/store/web-designing-pricing-plan" },
   { id: "about", label: "About Us", href: "/about" },
   { id: "support", label: "Support", href: "/support" },
   { id: "contact", label: "Contact Us", href: "/contact" },
@@ -177,7 +177,7 @@ const Navbar = () => {
 
           {/* Get Started Button */}
           <a
-  href="/order-now"
+  href="https://billing.swaget.in/index.php/store/web-designing-pricing-plan"
   target="_blank"
   rel="noopener noreferrer"
   className="w-full text-center bg-gradient-to-r from-yellow-500 to-yellow-400 text-gray-900 px-6 py-2 rounded-lg font-medium text-lg shadow-lg hover:scale-105 transition-transform duration-300"
@@ -297,7 +297,7 @@ const Navbar = () => {
               Login
             </Link>
             <a
-  href="/order-now"
+  href="https://billing.swaget.in/index.php/store/web-designing-pricing-plan"
   className="w-full text-center bg-gradient-to-r from-yellow-500 to-yellow-400 text-gray-900 px-6 py-2 rounded-lg font-medium text-lg shadow-lg hover:scale-105 transition-transform duration-300"
    target="_blank"
   rel="noopener noreferrer"
