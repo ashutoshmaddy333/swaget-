@@ -33,9 +33,9 @@ const QuoteRequestForm = () => {
   };
 
   return (
-    <article className="mt-10 md:mt-0 bg-gray-900 bg-opacity-80 p-6 md:p-8 rounded-2xl w-full md:w-1/2 shadow-2xl transition-transform duration-300 hover:scale-105">
+    <article className="mt-4 md:mt-0 bg-gray-900 bg-opacity-80 p-6 md:p-8 rounded-2xl w-full md:w-1/2 shadow-2xl transition-transform duration-300 hover:scale-105">
       <h2 className="text-2xl md:text-3xl font-semibold text-yellow-400 mb-6">Request A Quote</h2>
-      <form className="space-y-4" onSubmit={handleSubmit}>
+      <form className="space-y-1" onSubmit={handleSubmit}>
         <label className="block">
           <input 
             type="email" 
@@ -159,7 +159,7 @@ const FeatureCard = ({ icon: Icon, title, color }) => {
 
 const HomePage = () => {
   return (
-    <div className="relative w-full min-h-screen flex flex-col items-center justify-center pt-16 md:pt-20">
+    <div className="relative w-full min-h-screen flex flex-col items-center justify-center pt-0">
       {/* Background - YouTube Video */}
       <div className="absolute inset-0 z-0">
         <iframe
@@ -177,8 +177,8 @@ const HomePage = () => {
       </div>
 
       {/* Main Content */}
-      <main className="relative z-10 w-full max-w-6xl mx-auto px-4 md:px-6 py-12 md:py-16">
-        <section className="w-full flex flex-col md:flex-row items-center justify-between gap-8 md:gap-16">
+      <main className="relative z-10 w-full max-w-6xl mx-auto px-4 md:px-6 py-8 md:py-12">
+        <section className="w-full flex flex-col md:flex-row items-center justify-between gap-8 md:gap-16 mt-4 md:mt-0">
           <QuoteRequestForm />
 
           <article className="text-center md:text-left md:w-1/2 space-y-4 md:space-y-6 relative">

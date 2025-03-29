@@ -105,7 +105,7 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-gray-900 shadow-lg py-2" : "bg-gray-800 py-3"
+        scrolled ? "bg-gray-900 shadow-lg py-4" : "bg-gray-800 py-5"
       }`}
       aria-label="Main navigation"
     >
