@@ -139,71 +139,82 @@ const PrivacyPolicy = () => {
   return (
     <div className="min-h-screen bg-gray-900 text-white">
       {/* Header */}
-      <header className="bg-black-300 shadow-sm">
+      <header className="bg-gray-800 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex justify-between items-center">
             <div className="flex items-center">
-              <div className="text-2xl font-bold text-yellow-400">Swaget</div>
-              <div className="ml-2 text-sm text-gray-400">Infocomm Solutions LLP</div>
+              <h1 className="text-xl sm:text-2xl font-bold text-yellow-400">Swaget</h1>
+              <span className="ml-2 text-xs sm:text-sm text-gray-400">Infocomm Solutions LLP</span>
             </div>
-          
           </div>
         </div>
       </header>
       
       {/* Main Content */}
-      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="bg-gray-800 shadow-lg rounded-lg overflow-hidden">
+      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        <article className="bg-gray-800 shadow-lg rounded-lg overflow-hidden">
           {/* Title Section */}
-          <div className="bg-gradient-to-r from-yellow-500 to-yellow-600 py-8 px-6">
-            <h1 className="text-3xl font-bold text-gray-900">Privacy Policy</h1>
-            <p className="text-yellow-100 mt-2 text-sm">Last updated: March 23, 2025</p>
+          <div className="bg-gradient-to-r from-yellow-500 to-yellow-600 py-6 sm:py-8 px-4 sm:px-6">
+            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Privacy Policy</h1>
+            <p className="text-yellow-100 mt-1 sm:mt-2 text-xs sm:text-sm">
+              Last updated: <time dateTime="2025-03-23">March 23, 2025</time>
+            </p>
           </div>
           
           {/* Introduction */}
-          <div className="p-6 border-b border-gray-700">
+          <div className="p-4 sm:p-6 border-b border-gray-700">
             <p className="text-gray-300">
               Thank you for choosing Swaget Infocomm Solutions LLP ("us", "we", or "our"). This Privacy Policy describes how we collect, use, disclose, and safeguard your information when you visit our website swaget.in (the "Site") or engage with our services. By accessing our Site or using our services, you agree to the terms and practices described in this Privacy Policy. If you do not agree with the terms herein, please refrain from using our Site or services.
             </p>
           </div>
           
           {/* Accordion Sections */}
-          <div>
+          <div className="divide-y divide-gray-700">
             {sections.map((section) => (
-              <div key={section.id} className="border-b border-gray-700">
+              <section key={section.id} className="border-b border-gray-700">
                 <button
                   onClick={() => toggleSection(section.id)}
-                  className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-700 focus:outline-none transition-colors"
+                  className="w-full px-4 sm:px-6 py-3 sm:py-4 text-left flex justify-between items-center hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50 transition-colors"
+                  aria-expanded={activeSection === section.id}
+                  aria-controls={`${section.id}-content`}
                 >
-                  <h2 className="text-lg font-semibold text-yellow-400">{section.title}</h2>
+                  <h2 className="text-base sm:text-lg font-semibold text-yellow-400">{section.title}</h2>
                   <svg
-                    className={`w-5 h-5 text-yellow-400 transform ${activeSection === section.id ? 'rotate-180' : ''}`}
+                    className={`w-5 h-5 text-yellow-400 transform transition-transform duration-200 ${activeSection === section.id ? 'rotate-180' : ''}`}
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
+                    aria-hidden="true"
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
                   </svg>
                 </button>
-                {activeSection === section.id && (
-                  <div className="px-6 py-4 bg-gray-700">
+                <div
+                  id={`${section.id}-content`}
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${activeSection === section.id ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'}`}
+                >
+                  <div className="px-4 sm:px-6 py-3 sm:py-4 bg-gray-700">
                     {section.content}
                   </div>
-                )}
-              </div>
+                </div>
+              </section>
             ))}
           </div>
-        </div>
+        </article>
         
         {/* Bottom Contact Card */}
-        <div className="mt-8 bg-gradient-to-r from-yellow-500 to-yellow-600 border border-yellow-400 rounded-lg p-6">
-          <h3 className="text-xl font-bold text-gray-900">Need more information?</h3>
-          <p className="mt-2 text-gray-800">
+        <div className="mt-6 sm:mt-8 bg-gradient-to-r from-yellow-500 to-yellow-600 border border-yellow-400 rounded-lg p-4 sm:p-6">
+          <h3 className="text-lg sm:text-xl font-bold text-gray-900">Need more information?</h3>
+          <p className="mt-2 text-gray-800 text-sm sm:text-base">
             If you have any questions about our privacy practices or would like to exercise your rights, 
             please don't hesitate to contact our privacy team.
           </p>
-          <div className="mt-4">
-            <a href="mailto:info@swaget.in" className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-yellow-600 bg-gray-900 hover:bg-gray-800 transition-colors">
+          <div className="mt-3 sm:mt-4">
+            <a 
+              href="mailto:info@swaget.in" 
+              className="inline-flex items-center px-3 sm:px-4 py-2 border border-transparent text-sm sm:text-base font-medium rounded-md text-yellow-600 bg-gray-900 hover:bg-gray-800 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500"
+              aria-label="Contact us via email"
+            >
               Contact Us
             </a>
           </div>

@@ -35,9 +35,7 @@ const FeaturesSection = () => {
       icon: Zap,
       title: "Creative Web Designing",
       description: "Get stunning, responsive, and user-friendly designs tailored to your brand's needs."
-    }
-    
-    ,
+    },
     {
       icon: Globe,
       title: "Free Domain Name",
@@ -64,72 +62,37 @@ const FeaturesSection = () => {
     },
   ];
 
- 
-    const testimonials = [
-      {
-        name: "Amit Sharma",
-        role: "Web Designer",
-        comment:
-          "The custom web design solutions provided by this team are outstanding. My website now looks professional, modern, and highly responsive!",
-      },
-      {
-        name: "Priya Verma",
-        role: "E-commerce Business Owner",
-        comment:
-          "Their web design expertise transformed my online store. The clean layout and fast loading speed have significantly improved my sales!",
-      },
-      {
-        name: "Rajesh Iyer",
-        role: "Freelance Developer",
-        comment:
-          "The UI/UX design enhancements they provided have taken my website to the next level. The attention to detail is truly remarkable!",
-      },
-    ];
-    
-
-  const comparisonTable = [
+  const testimonials = [
     {
-      feature: "Uptime Guarantee",
-      ourService: "99.9%",
-      competitorA: "99.5%",
-      competitorB: "99.0%",
+      name: "Amit Sharma",
+      role: "Web Designer",
+      comment:
+        "The custom web design solutions provided by this team are outstanding. My website now looks professional, modern, and highly responsive!",
     },
     {
-      feature: "Free SSL Certificate",
-      ourService: "Yes",
-      competitorA: "No",
-      competitorB: "Yes",
+      name: "Priya Verma",
+      role: "E-commerce Business Owner",
+      comment:
+        "Their web design expertise transformed my online store. The clean layout and fast loading speed have significantly improved my sales!",
     },
     {
-      feature: "24/7 Support",
-      ourService: "Yes",
-      competitorA: "Yes",
-      competitorB: "No",
-    },
-    {
-      feature: "Free Domain",
-      ourService: "Yes",
-      competitorA: "No",
-      competitorB: "No",
-    },
-    {
-      feature: "1-Click Installations",
-      ourService: "Yes",
-      competitorA: "Yes",
-      competitorB: "No",
+      name: "Rajesh Iyer",
+      role: "Freelance Developer",
+      comment:
+        "The UI/UX design enhancements they provided have taken my website to the next level. The attention to detail is truly remarkable!",
     },
   ];
 
   return (
-    <div className="bg-black py-20">
-      <div className="max-w-7xl mx-auto px-4">
-        {/* Features Section */}
-        <div className="text-center mb-16">
+    <section className="bg-black py-12 md:py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Features Header */}
+        <header className="text-center mb-12 md:mb-16">
           <motion.h2
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-4xl font-bold text-yellow-400 mb-4"
+            className="text-3xl md:text-4xl font-bold text-yellow-400 mb-4"
           >
             Why Choose Our Web Designing?
           </motion.h2>
@@ -137,80 +100,82 @@ const FeaturesSection = () => {
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-xl text-gray-300 max-w-3xl mx-auto"
+            className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto"
           >
             "Everything you need to design, build, and manage a stunning website—seamless, powerful, and user-friendly!" 🚀
           </motion.p>
-        </div>
+        </header>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* Features Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {features.map((feature, index) => (
-            <motion.div
+            <motion.article
               key={feature.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="relative p-6 bg-gray-900 rounded-xl shadow-lg hover:scale-105 transition-transform duration-300"
+              className="relative p-5 md:p-6 bg-gray-900 rounded-xl shadow-lg hover:scale-105 transition-transform duration-300"
             >
-              <div className="absolute -top-6 left-6">
-                <div className="p-3 bg-yellow-500 rounded-lg text-black">
-                  <feature.icon className="h-6 w-6" />
+              <div className="absolute -top-5 left-5 md:-top-6 md:left-6">
+                <div className="p-2 md:p-3 bg-yellow-500 rounded-lg text-black">
+                  <feature.icon className="h-5 w-5 md:h-6 md:w-6" />
                 </div>
               </div>
-              <div className="pt-8">
-                <h3 className="text-xl font-semibold text-yellow-400 mb-3">
+              <div className="pt-10 md:pt-8">
+                <h3 className="text-lg md:text-xl font-semibold text-yellow-400 mb-2 md:mb-3">
                   {feature.title}
                 </h3>
-                <p className="text-gray-300">{feature.description}</p>
+                <p className="text-gray-300 text-sm md:text-base">{feature.description}</p>
               </div>
-            </motion.div>
+            </motion.article>
           ))}
         </div>
 
-      
-
-        {/* Call to Action */}
+        {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-center mt-20"
+          className="text-center mt-16 md:mt-20"
         >
-          <button className="bg-yellow-500 text-black font-semibold py-3 px-8 rounded-lg hover:bg-yellow-600 transition-colors duration-300">
+          <button 
+            type="button"
+            aria-label="Get started with our services"
+            className="bg-yellow-500 text-black font-semibold py-2 px-6 md:py-3 md:px-8 rounded-lg hover:bg-yellow-600 transition-colors duration-300"
+          >
             Get Started Now
           </button>
         </motion.div>
 
-        {/* Testimonials Section */}
-        <div className="mt-20">
-          <h3 className="text-3xl font-bold text-yellow-400 text-center mb-8">
+        {/* Testimonials */}
+        <section className="mt-16 md:mt-20">
+          <h3 className="text-2xl md:text-3xl font-bold text-yellow-400 text-center mb-6 md:mb-8">
             What Our Customers Say
           </h3>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {testimonials.map((testimonial, index) => (
-              <motion.div
+              <motion.figure
                 key={testimonial.name}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
-                className="p-6 bg-gray-800 rounded-xl shadow-lg"
+                className="p-5 md:p-6 bg-gray-800 rounded-xl shadow-lg"
               >
-                <p className="text-gray-300 italic">"{testimonial.comment}"</p>
-                <div className="mt-4">
+                <blockquote className="text-gray-300 italic text-sm md:text-base">
+                  "{testimonial.comment}"
+                </blockquote>
+                <figcaption className="mt-4">
                   <p className="text-yellow-400 font-semibold">
                     {testimonial.name}
                   </p>
-                  <p className="text-gray-400">{testimonial.role}</p>
-                </div>
-              </motion.div>
+                  <p className="text-gray-400 text-sm">{testimonial.role}</p>
+                </figcaption>
+              </motion.figure>
             ))}
           </div>
-        </div>
-
-        
-        
+        </section>
       </div>
-    </div>
+    </section>
   );
 };
 

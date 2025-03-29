@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet';
 
 const TermsAndConditions = () => {
   const [activeSection, setActiveSection] = useState(null);
@@ -15,7 +16,7 @@ const TermsAndConditions = () => {
         <div>
           <p className="text-gray-300 mb-4">
             Welcome to Swaget Infocomm Solutions LLP! These terms and conditions outline the rules and regulations for the use of Swaget Infocomm Solutions LLP's Website, located at{" "}
-            <a href="http://swaget.in/" className="text-yellow-400 hover:text-yellow-500">
+            <a href="http://swaget.in/" className="text-yellow-400 hover:text-yellow-500" rel="noopener noreferrer">
               http://swaget.in/
             </a>
             .
@@ -275,45 +276,72 @@ const TermsAndConditions = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 text-white">
-      {/* Header */}
+      <Helmet>
+        <title>Terms and Conditions | Swaget Infocomm Solutions LLP</title>
+        <meta 
+          name="description" 
+          content="Read Swaget Infocomm Solutions LLP's Terms and Conditions covering website usage, web design services, payment terms, intellectual property, and more." 
+        />
+        <meta name="keywords" content="terms and conditions, web design terms, website usage policy, Swaget Infocomm, IT services agreement" />
+        <meta property="og:title" content="Terms and Conditions | Swaget Infocomm Solutions LLP" />
+        <meta property="og:description" content="Official terms and conditions for Swaget Infocomm Solutions LLP website and services" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://swaget.in/terms-and-conditions" />
+        <link rel="canonical" href="https://swaget.in/terms-and-conditions" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "Terms and Conditions",
+            "description": "Official terms and conditions for Swaget Infocomm Solutions LLP",
+            "url": "https://swaget.in/terms-and-conditions",
+            "publisher": {
+              "@type": "Organization",
+              "name": "Swaget Infocomm Solutions LLP",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://swaget.in/logo.png"
+              }
+            }
+          })}
+        </script>
+      </Helmet>
+
       <header className="bg-gray-800 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex justify-between items-center">
             <div className="flex items-center">
-              <div className="text-2xl font-bold text-yellow-400">Swaget</div>
+              <h1 className="text-2xl font-bold text-yellow-400">Swaget</h1>
               <div className="ml-2 text-sm text-gray-400">Infocomm Solutions LLP</div>
             </div>
-           
           </div>
         </div>
       </header>
       
-      {/* Main Content */}
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="bg-gray-800 shadow-lg rounded-lg overflow-hidden">
-          {/* Title Section */}
-          <div className="bg-gradient-to-r from-yellow-500 to-yellow-600 py-8 px-6">
+        <article className="bg-gray-800 shadow-lg rounded-lg overflow-hidden">
+          <section className="bg-gradient-to-r from-yellow-500 to-yellow-600 py-8 px-6">
             <h1 className="text-3xl font-bold text-gray-900">Terms and Conditions</h1>
             <p className="text-yellow-100 mt-2 text-sm">Last updated: March 23, 2025</p>
-          </div>
+          </section>
           
-          {/* Introduction */}
-          <div className="p-6 border-b border-gray-700">
+          <section className="p-6 border-b border-gray-700" aria-labelledby="welcome-heading">
             <div className="mb-4">
-              <h2 className="text-lg font-medium text-yellow-400 mb-2">Welcome to Swaget Infocomm Solutions LLP</h2>
+              <h2 id="welcome-heading" className="text-lg font-medium text-yellow-400 mb-2">Welcome to Swaget Infocomm Solutions LLP</h2>
               <p className="text-gray-300 italic">
                 These terms and conditions outline the rules and regulations for the use of Swaget Infocomm Solutions LLP's Website.
               </p>
             </div>
-          </div>
+          </section>
           
-          {/* Accordion Sections */}
-          <div>
+          <section>
             {sections.map((section) => (
               <div key={section.id} className="border-b border-gray-700">
                 <button
                   onClick={() => toggleSection(section.id)}
                   className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-700 focus:outline-none transition-colors"
+                  aria-expanded={activeSection === section.id}
+                  aria-controls={`${section.id}-content`}
                 >
                   <h2 className="text-lg font-semibold text-yellow-400">{section.title}</h2>
                   <svg
@@ -321,32 +349,36 @@ const TermsAndConditions = () => {
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
+                    aria-hidden="true"
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
                   </svg>
                 </button>
                 {activeSection === section.id && (
-                  <div className="px-6 py-4 bg-gray-700">
+                  <div id={`${section.id}-content`} className="px-6 py-4 bg-gray-700">
                     {section.content}
                   </div>
                 )}
               </div>
             ))}
-          </div>
-        </div>
+          </section>
+        </article>
         
-        {/* Bottom Contact Card */}
-        <div className="mt-8 bg-gradient-to-r from-yellow-500 to-yellow-600 border border-yellow-400 rounded-lg p-6">
+        <aside className="mt-8 bg-gradient-to-r from-yellow-500 to-yellow-600 border border-yellow-400 rounded-lg p-6">
           <h3 className="text-xl font-bold text-gray-900">Need clarification about our terms?</h3>
           <p className="mt-2 text-gray-800">
             Our customer support team is available to assist you with any questions regarding our terms and conditions.
           </p>
           <div className="mt-4">
-            <a href="mailto:info@swaget.in" className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-yellow-600 bg-gray-900 hover:bg-gray-800 transition-colors">
+            <a 
+              href="mailto:info@swaget.in" 
+              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-yellow-600 bg-gray-900 hover:bg-gray-800 transition-colors"
+              aria-label="Contact our support team via email"
+            >
               Contact Support
             </a>
           </div>
-        </div>
+        </aside>
       </main>
     </div>
   );

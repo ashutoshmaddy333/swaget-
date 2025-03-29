@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { Helmet } from 'react-helmet';
 import ReCAPTCHA from 'react-google-recaptcha';
 
 const OrderForm = () => {
@@ -40,7 +41,6 @@ const OrderForm = () => {
   };
   
   const handleRecaptchaChange = (value) => {
-    console.log("ReCAPTCHA Token:", value);
     setCaptchaVerified(!!value);
   };
   
@@ -81,296 +81,351 @@ const OrderForm = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-950 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -left-20 -top-20 w-64 h-64 bg-yellow-500/5 rounded-full filter blur-3xl"></div>
-        <div className="absolute -right-20 -bottom-20 w-80 h-80 bg-yellow-500/5 rounded-full filter blur-3xl"></div>
-      </div>
-
-      <div className="relative w-full max-w-4xl">
-        {/* Glowing border effect */}
-        <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-3xl blur-xl opacity-10 animate-pulse"></div>
+    <>
+      <Helmet>
+        <title>Order Now | Swaget Digital - Website Design & Development Services</title>
+        <meta 
+          name="description" 
+          content="Place your order for professional website design, development, and digital marketing services from Swaget Digital. Choose from our affordable plans." 
+        />
+        <meta 
+          name="keywords" 
+          content="order website design, web development services, digital marketing order, swaget order form" 
+        />
+        <meta property="og:title" content="Order Now | Swaget Digital Services" />
+        <meta property="og:description" content="Get started with our professional web services by placing your order today." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://swaget.in/order" />
+        <link rel="canonical" href="https://swaget.in/order" />
         
-        {/* Main container */}
-        <div className="relative bg-gray-900/90 rounded-2xl overflow-hidden shadow-2xl border border-gray-700/50 backdrop-blur-sm">
-          {/* ORDER NOW Header */}
-          <div className="bg-gradient-to-r from-gray-900 to-gray-800 border-b border-yellow-500/20 py-6 px-8 text-center">
-            <h1 className="text-4xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500">
-              ORDER NOW
-            </h1>
-            <div className="mt-2 flex justify-center">
-              <div className="w-24 h-1 bg-gradient-to-r from-yellow-500 to-yellow-300 rounded-full"></div>
-            </div>
-          </div>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "Order Now",
+            "description": "Order form for Swaget Digital services",
+            "potentialAction": {
+              "@type": "OrderAction",
+              "target": "https://swaget.in/order"
+            }
+          })}
+        </script>
+      </Helmet>
+
+      <div className="min-h-screen bg-gray-950 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute -left-20 -top-20 w-64 h-64 bg-yellow-500/5 rounded-full filter blur-3xl"></div>
+          <div className="absolute -right-20 -bottom-20 w-80 h-80 bg-yellow-500/5 rounded-full filter blur-3xl"></div>
+        </div>
+
+        <div className="relative w-full max-w-4xl">
+          {/* Glowing border effect */}
+          <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-3xl blur-xl opacity-10 animate-pulse"></div>
           
-          <div className="p-8">
-            {/* Form Header */}
-            <div className="text-center mb-10">
-              <h2 className="text-3xl font-extrabold text-yellow-500 bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500">
-                Fill the Details to Order
-              </h2>
-              <p className="mt-2 text-sm text-gray-400">Complete the form below to place your order</p>
+          {/* Main container */}
+          <div className="relative bg-gray-900/90 rounded-2xl overflow-hidden shadow-2xl border border-gray-700/50 backdrop-blur-sm">
+            {/* ORDER NOW Header */}
+            <div className="bg-gradient-to-r from-gray-900 to-gray-800 border-b border-yellow-500/20 py-6 px-8 text-center">
+              <h1 className="text-4xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500">
+                ORDER NOW
+              </h1>
+              <div className="mt-2 flex justify-center">
+                <div className="w-24 h-1 bg-gradient-to-r from-yellow-500 to-yellow-300 rounded-full"></div>
+              </div>
             </div>
             
-            <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Personal Details Section */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="firstName" className="block text-sm font-medium text-gray-300">First Name <span className="text-red-500">*</span></label>
-                  <input
-                    type="text"
-                    id="firstName"
-                    name="firstName"
-                    required
-                    className="mt-1 block w-full bg-gray-800 border border-gray-700 rounded-md py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all duration-300"
-                    value={formData.firstName}
-                    onChange={handleChange}
-                  />
-                </div>
-                
-                <div>
-                  <label htmlFor="lastName" className="block text-sm font-medium text-gray-300">Last Name <span className="text-red-500">*</span></label>
-                  <input
-                    type="text"
-                    id="lastName"
-                    name="lastName"
-                    required
-                    className="mt-1 block w-full bg-gray-800 border border-gray-700 rounded-md py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all duration-300"
-                    value={formData.lastName}
-                    onChange={handleChange}
-                  />
-                </div>
-                
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-300">Email <span className="text-red-500">*</span></label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    className="mt-1 block w-full bg-gray-800 border border-gray-700 rounded-md py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all duration-300"
-                    value={formData.email}
-                    onChange={handleChange}
-                  />
-                </div>
-                
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-300">Phone <span className="text-red-500">*</span></label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    required
-                    className="mt-1 block w-full bg-gray-800 border border-gray-700 rounded-md py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all duration-300"
-                    value={formData.phone}
-                    onChange={handleChange}
-                  />
-                </div>
+            <div className="p-8">
+              {/* Form Header */}
+              <div className="text-center mb-10">
+                <h2 className="text-3xl font-extrabold text-yellow-500 bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500">
+                  Fill the Details to Order
+                </h2>
+                <p className="mt-2 text-sm text-gray-400">Complete the form below to place your order</p>
               </div>
               
-              {/* Company & Plan Section */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="companyName" className="block text-sm font-medium text-gray-300">Company Name</label>
-                  <input
-                    type="text"
-                    id="companyName"
-                    name="companyName"
-                    placeholder="Optional"
-                    className="mt-1 block w-full bg-gray-800 border border-gray-700 rounded-md py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all duration-300"
-                    value={formData.companyName}
-                    onChange={handleChange}
-                  />
-                </div>
-                
-                <div className="relative">
-                  <label htmlFor="websitePlan" className="block text-sm font-medium text-gray-300">Website Plan <span className="text-red-500">*</span></label>
-                  <div className="mt-1 relative">
-                    <button
-                      type="button"
-                      className="relative w-full bg-gray-800 border border-gray-700 rounded-md py-3 px-4 text-left text-white focus:outline-none focus:ring-2 focus:ring-yellow-500 transition-all duration-300"
-                      onClick={() => setDropdownOpen(!dropdownOpen)}
-                    >
-                      <span>{formData.websitePlan}</span>
-                      <span className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                        <svg className="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                          <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-                        </svg>
-                      </span>
-                    </button>
-                    
-                    {dropdownOpen && (
-                      <div className="absolute z-10 mt-1 w-full bg-gray-800 border border-gray-700 rounded-md shadow-lg max-h-60 overflow-auto">
-                        <ul className="py-1 text-base">
-                          {plans.map((plan, index) => (
-                            <li
-                              key={index}
-                              className={`cursor-pointer px-4 py-3 hover:bg-gray-700 transition-colors duration-200 ${
-                                formData.websitePlan === plan ? 'bg-yellow-500 text-black font-medium' : 'text-gray-300'
-                              }`}
-                              onClick={() => handlePlanSelect(plan)}
-                            >
-                              {plan}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
+              <form onSubmit={handleSubmit} className="space-y-6" itemScope itemType="https://schema.org/Order">
+                {/* Personal Details Section */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="firstName" className="block text-sm font-medium text-gray-300">First Name <span className="text-red-500">*</span></label>
+                    <input
+                      type="text"
+                      id="firstName"
+                      name="firstName"
+                      required
+                      className="mt-1 block w-full bg-gray-800 border border-gray-700 rounded-md py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all duration-300"
+                      value={formData.firstName}
+                      onChange={handleChange}
+                      itemProp="givenName"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="lastName" className="block text-sm font-medium text-gray-300">Last Name <span className="text-red-500">*</span></label>
+                    <input
+                      type="text"
+                      id="lastName"
+                      name="lastName"
+                      required
+                      className="mt-1 block w-full bg-gray-800 border border-gray-700 rounded-md py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all duration-300"
+                      value={formData.lastName}
+                      onChange={handleChange}
+                      itemProp="familyName"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-300">Email <span className="text-red-500">*</span></label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      required
+                      className="mt-1 block w-full bg-gray-800 border border-gray-700 rounded-md py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all duration-300"
+                      value={formData.email}
+                      onChange={handleChange}
+                      itemProp="email"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="phone" className="block text-sm font-medium text-gray-300">Phone <span className="text-red-500">*</span></label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      required
+                      className="mt-1 block w-full bg-gray-800 border border-gray-700 rounded-md py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all duration-300"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      itemProp="telephone"
+                    />
                   </div>
                 </div>
                 
-                <div>
-                  <label htmlFor="domainName" className="block text-sm font-medium text-gray-300">Domain Name</label>
-                  <input
-                    type="text"
-                    id="domainName"
-                    name="domainName"
-                    className="mt-1 block w-full bg-gray-800 border border-gray-700 rounded-md py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all duration-300"
-                    value={formData.domainName}
-                    onChange={handleChange}
-                  />
-                </div>
-              </div>
-              
-              {/* Address Section */}
-              <div className="grid grid-cols-1 gap-6">
-                <div>
-                  <label htmlFor="address" className="block text-sm font-medium text-gray-300">Address <span className="text-red-500">*</span></label>
-                  <textarea
-                    id="address"
-                    name="address"
-                    rows="3"
-                    required
-                    className="mt-1 block w-full bg-gray-800 border border-gray-700 rounded-md py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all duration-300"
-                    value={formData.address}
-                    onChange={handleChange}
-                  ></textarea>
-                </div>
-                
+                {/* Company & Plan Section */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="district" className="block text-sm font-medium text-gray-300">District <span className="text-red-500">*</span></label>
+                    <label htmlFor="companyName" className="block text-sm font-medium text-gray-300">Company Name</label>
                     <input
                       type="text"
-                      id="district"
-                      name="district"
+                      id="companyName"
+                      name="companyName"
+                      placeholder="Optional"
+                      className="mt-1 block w-full bg-gray-800 border border-gray-700 rounded-md py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all duration-300"
+                      value={formData.companyName}
+                      onChange={handleChange}
+                      itemProp="name"
+                    />
+                  </div>
+                  
+                  <div className="relative">
+                    <label htmlFor="websitePlan" className="block text-sm font-medium text-gray-300">Website Plan <span className="text-red-500">*</span></label>
+                    <div className="mt-1 relative">
+                      <button
+                        type="button"
+                        className="relative w-full bg-gray-800 border border-gray-700 rounded-md py-3 px-4 text-left text-white focus:outline-none focus:ring-2 focus:ring-yellow-500 transition-all duration-300"
+                        onClick={() => setDropdownOpen(!dropdownOpen)}
+                        aria-expanded={dropdownOpen}
+                        aria-controls="plan-dropdown"
+                        aria-label="Select website plan"
+                      >
+                        <span>{formData.websitePlan}</span>
+                        <span className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                          <svg className="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                            <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                          </svg>
+                        </span>
+                      </button>
+                      
+                      {dropdownOpen && (
+                        <div 
+                          id="plan-dropdown"
+                          className="absolute z-10 mt-1 w-full bg-gray-800 border border-gray-700 rounded-md shadow-lg max-h-60 overflow-auto"
+                          role="listbox"
+                        >
+                          <ul className="py-1 text-base">
+                            {plans.map((plan, index) => (
+                              <li
+                                key={index}
+                                className={`cursor-pointer px-4 py-3 hover:bg-gray-700 transition-colors duration-200 ${
+                                  formData.websitePlan === plan ? 'bg-yellow-500 text-black font-medium' : 'text-gray-300'
+                                }`}
+                                onClick={() => handlePlanSelect(plan)}
+                                role="option"
+                                aria-selected={formData.websitePlan === plan}
+                              >
+                                {plan}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="domainName" className="block text-sm font-medium text-gray-300">Domain Name</label>
+                    <input
+                      type="text"
+                      id="domainName"
+                      name="domainName"
+                      className="mt-1 block w-full bg-gray-800 border border-gray-700 rounded-md py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all duration-300"
+                      value={formData.domainName}
+                      onChange={handleChange}
+                      itemProp="identifier"
+                    />
+                  </div>
+                </div>
+                
+                {/* Address Section */}
+                <div className="grid grid-cols-1 gap-6">
+                  <div>
+                    <label htmlFor="address" className="block text-sm font-medium text-gray-300">Address <span className="text-red-500">*</span></label>
+                    <textarea
+                      id="address"
+                      name="address"
+                      rows="3"
                       required
                       className="mt-1 block w-full bg-gray-800 border border-gray-700 rounded-md py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all duration-300"
-                      value={formData.district}
+                      value={formData.address}
+                      onChange={handleChange}
+                      itemProp="address"
+                    ></textarea>
+                  </div>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label htmlFor="district" className="block text-sm font-medium text-gray-300">District <span className="text-red-500">*</span></label>
+                      <input
+                        type="text"
+                        id="district"
+                        name="district"
+                        required
+                        className="mt-1 block w-full bg-gray-800 border border-gray-700 rounded-md py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all duration-300"
+                        value={formData.district}
+                        onChange={handleChange}
+                        itemProp="addressRegion"
+                      />
+                    </div>
+                    
+                    <div>
+                      <label htmlFor="pincode" className="block text-sm font-medium text-gray-300">Pincode <span className="text-red-500">*</span></label>
+                      <input
+                        type="text"
+                        id="pincode"
+                        name="pincode"
+                        required
+                        className="mt-1 block w-full bg-gray-800 border border-gray-700 rounded-md py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all duration-300"
+                        value={formData.pincode}
+                        onChange={handleChange}
+                        itemProp="postalCode"
+                      />
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="gstNumber" className="block text-sm font-medium text-gray-300">GST Number</label>
+                    <input
+                      type="text"
+                      id="gstNumber"
+                      name="gstNumber"
+                      placeholder="Optional"
+                      className="mt-1 block w-full bg-gray-800 border border-gray-700 rounded-md py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all duration-300"
+                      value={formData.gstNumber}
                       onChange={handleChange}
                     />
                   </div>
                   
                   <div>
-                    <label htmlFor="pincode" className="block text-sm font-medium text-gray-300">Pincode <span className="text-red-500">*</span></label>
+                    <label htmlFor="couponCode" className="block text-sm font-medium text-gray-300">Please Enter Coupon / Promo Code Here</label>
                     <input
                       type="text"
-                      id="pincode"
-                      name="pincode"
-                      required
+                      id="couponCode"
+                      name="couponCode"
                       className="mt-1 block w-full bg-gray-800 border border-gray-700 rounded-md py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all duration-300"
-                      value={formData.pincode}
+                      value={formData.couponCode}
                       onChange={handleChange}
+                      itemProp="discountCode"
                     />
                   </div>
                 </div>
                 
+                {/* File Upload */}
                 <div>
-                  <label htmlFor="gstNumber" className="block text-sm font-medium text-gray-300">GST Number</label>
-                  <input
-                    type="text"
-                    id="gstNumber"
-                    name="gstNumber"
-                    placeholder="Optional"
-                    className="mt-1 block w-full bg-gray-800 border border-gray-700 rounded-md py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all duration-300"
-                    value={formData.gstNumber}
-                    onChange={handleChange}
+                  <label className="block text-sm font-medium text-gray-300 mb-2">Please Upload GST/ ID Proof</label>
+                  <div className="flex items-center">
+                    <button
+                      type="button"
+                      onClick={() => fileInputRef.current.click()}
+                      className="px-5 py-2.5 bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-semibold rounded-md hover:from-yellow-600 hover:to-yellow-700 transition-all duration-300 shadow-lg hover:shadow-yellow-500/30"
+                      aria-label="Upload file"
+                    >
+                      Choose File
+                    </button>
+                    <span className="ml-3 text-sm text-gray-400">{selectedFileName}</span>
+                    <input
+                      ref={fileInputRef}
+                      type="file"
+                      className="hidden"
+                      onChange={handleFileChange}
+                      aria-label="File upload"
+                    />
+                  </div>
+                </div>
+                
+                {/* reCAPTCHA */}
+                <div className="flex justify-center my-6">
+                  <ReCAPTCHA
+                    sitekey="6LfhJ7opAAAAAJwarSFjIYcnMWm052wDgJ4hl7ER"
+                    onChange={handleRecaptchaChange}
+                    theme="dark"
                   />
                 </div>
                 
-                <div>
-                  <label htmlFor="couponCode" className="block text-sm font-medium text-gray-300">Please Enter Coupon / Promo Code Here</label>
-                  <input
-                    type="text"
-                    id="couponCode"
-                    name="couponCode"
-                    className="mt-1 block w-full bg-gray-800 border border-gray-700 rounded-md py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all duration-300"
-                    value={formData.couponCode}
-                    onChange={handleChange}
-                  />
+                {/* Terms and Conditions */}
+                <div className="flex items-start">
+                  <div className="flex items-center h-5">
+                    <input
+                      id="termsAccepted"
+                      name="termsAccepted"
+                      type="checkbox"
+                      className="h-4 w-4 text-yellow-500 focus:ring-yellow-500 border-gray-700 rounded bg-gray-800"
+                      checked={formData.termsAccepted}
+                      onChange={handleChange}
+                      required
+                      aria-label="Accept terms and conditions"
+                    />
+                  </div>
+                  <div className="ml-3 text-sm">
+                    <label htmlFor="termsAccepted" className="font-medium text-gray-300">
+                      I accept Terms & Condition, Refund Policy & Privacy Policy
+                    </label>
+                  </div>
                 </div>
-              </div>
-              
-              {/* File Upload */}
-              <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">Please Upload GST/ ID Proof</label>
-                <div className="flex items-center">
+                
+                {/* Note */}
+                <div className="text-sm text-gray-400 italic">
+                  Note: These Details are for invoice purpose, We maintain your privacy
+                </div>
+                
+                {/* Submit Button */}
+                <div className="pt-6 flex justify-center">
                   <button
-                    type="button"
-                    onClick={() => fileInputRef.current.click()}
-                    className="px-5 py-2.5 bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-semibold rounded-md hover:from-yellow-600 hover:to-yellow-700 transition-all duration-300 shadow-lg hover:shadow-yellow-500/30"
+                    type="submit"
+                    className="px-10 py-3.5 bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-bold rounded-md shadow-lg hover:from-yellow-600 hover:to-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50 transition-all duration-300 transform hover:scale-105 hover:shadow-yellow-500/40"
+                    aria-label="Submit order"
                   >
-                    Choose File
+                    Submit Order
                   </button>
-                  <span className="ml-3 text-sm text-gray-400">{selectedFileName}</span>
-                  <input
-                    ref={fileInputRef}
-                    type="file"
-                    className="hidden"
-                    onChange={handleFileChange}
-                  />
                 </div>
-              </div>
-              
-              {/* reCAPTCHA */}
-              <div className="flex justify-center my-6">
-                <ReCAPTCHA
-                  sitekey="6LfhJ7opAAAAAJwarSFjIYcnMWm052wDgJ4hl7ER"
-                  onChange={handleRecaptchaChange}
-                  theme="dark"
-                />
-              </div>
-              
-              {/* Terms and Conditions */}
-              <div className="flex items-start">
-                <div className="flex items-center h-5">
-                  <input
-                    id="termsAccepted"
-                    name="termsAccepted"
-                    type="checkbox"
-                    className="h-4 w-4 text-yellow-500 focus:ring-yellow-500 border-gray-700 rounded bg-gray-800"
-                    checked={formData.termsAccepted}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-                <div className="ml-3 text-sm">
-                  <label htmlFor="termsAccepted" className="font-medium text-gray-300">
-                    I accept Terms & Condition, Refund Policy & Privacy Policy
-                  </label>
-                </div>
-              </div>
-              
-              {/* Note */}
-              <div className="text-sm text-gray-400 italic">
-                Note: These Details are for invoice purpose, We maintain your privacy
-              </div>
-              
-              {/* Submit Button */}
-              <div className="pt-6 flex justify-center">
-                <button
-                  type="submit"
-                  className="px-10 py-3.5 bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-bold rounded-md shadow-lg hover:from-yellow-600 hover:to-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50 transition-all duration-300 transform hover:scale-105 hover:shadow-yellow-500/40"
-                >
-                  Submit Order
-                </button>
-              </div>
-            </form>
+              </form>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
